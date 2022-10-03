@@ -1,4 +1,14 @@
 # spring-security-jwt
 Spring boot REST API using JWT and Spring Security
 
-test
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+
+### How to secure your Spring Boot REST APIs using JSON Web Tokens (JWT) with Spring Security.
+Source material -
+https://www.danvega.dev/blog/2022/09/06/spring-security-jwt/
+https://www.youtube.com/watch?v=KYNR5js2cXE
