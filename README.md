@@ -9,6 +9,9 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
 
 ### How to secure your Spring Boot REST APIs using JSON Web Tokens (JWT) with Spring Security.
+
 Source material -
+
 https://www.danvega.dev/blog/2022/09/06/spring-security-jwt/
+
 https://www.youtube.com/watch?v=KYNR5js2cXE
