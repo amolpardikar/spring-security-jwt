@@ -15,3 +15,14 @@ Source material -
 https://www.danvega.dev/blog/2022/09/06/spring-security-jwt/
 
 https://www.youtube.com/watch?v=KYNR5js2cXE
+
+
+### Guides
+
+# Generate new token
+Post - http://localhost:8080/token
+Authorization - Basic Auth username- amol, password - password
+
+# Call secure serevice
+Get - http://localhost:8080/secure
+Authorization - Bearer token

@@ -1,5 +1,8 @@
 package com.spring.demo.config;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -16,6 +19,9 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AnyRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;
@@ -50,6 +56,7 @@ public class SecurityConfig {
 	
 		return http
 				.csrf(csrf -> csrf.disable())
+				.cors(Customizer.withDefaults()) //Customise CORS
 				.authorizeRequests(auth -> {
 					auth.antMatchers("/").permitAll();
 					auth.anyRequest().authenticated();
@@ -72,4 +79,14 @@ public class SecurityConfig {
 		return new NimbusJwtEncoder(jwks);
 	}
 	
+	@Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration();
+		configuration.setAllowedOrigins(Arrays.asList("https://localhost:3000"));
+		configuration.setAllowedHeaders(List.of("*"));
+		configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", configuration);
+		return source;
+	}
 }

@@ -23,9 +23,9 @@ public class AuthController {
 	@PreAuthorize("hasAuthority('read')")
 	@PostMapping("/token")
 	public String token(Authentication auth) {
-		LOG.debug("Token requested for user: '{}' ",auth.getName());
+		LOG.info("Token requested for user: '{}' ",auth.getName());
 		String token = tokenService.generateToken(auth);
-		LOG.debug("Token granted {} : " +token);
+		LOG.info("Token granted {} : " +token);
 		return token;
 	}
 	
